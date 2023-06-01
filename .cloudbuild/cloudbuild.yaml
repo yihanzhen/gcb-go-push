@@ -1,0 +1,15 @@
+steps:
+# - name: gcr.io/cloud-builders/go
+#   args: ['run', 'github.com/GoogleCloudPlatform/artifact-registry-go-tools/cmd/auth@v0.1.0', 'add-locations', '--location=us-west1']
+# - name: gcr.io/cloud-builders/go
+#   args: ['run', 'github.com/GoogleCloudPlatform/artifact-registry-go-tools/cmd/auth@v0.1.0', 'refresh']
+- name: gcr.io/cloud-builders/gcloud
+  args:
+  - 'artifacts'
+  - 'go'
+  - 'upload'
+  - '--project=hanzhenyi3'
+  - '--location=us-west1'
+  - '--repository='go-repo'
+  - '--module-path=github.com/yihanzhen/gcb-go-push'
+  - '--version=v0.1.0'
