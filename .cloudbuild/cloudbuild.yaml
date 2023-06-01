@@ -13,4 +13,4 @@ steps:
   # as version numbers.
   # The $TAG is a feature of GCB to substitute the playholder to the actual tag name
   # if the build script is set to trigger on push to a tag.
-  - '--version=$TAG'
+  - '--version=$TAG_NAME'
