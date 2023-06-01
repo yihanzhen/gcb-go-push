@@ -1,15 +1,16 @@
 steps:
-# - name: gcr.io/cloud-builders/go
-#   args: ['run', 'github.com/GoogleCloudPlatform/artifact-registry-go-tools/cmd/auth@v0.1.0', 'add-locations', '--location=us-west1']
-# - name: gcr.io/cloud-builders/go
-#   args: ['run', 'github.com/GoogleCloudPlatform/artifact-registry-go-tools/cmd/auth@v0.1.0', 'refresh']
+# Auth is handled by gcloud so we don't need to do anything
 - name: gcr.io/cloud-builders/gcloud
   args:
   - 'artifacts'
   - 'go'
   - 'upload'
   - '--project=hanzhenyi3'
-  - '--location=us-west1'
+  - '--location=europe-west1'
   - '--repository=go-repo'
   - '--module-path=github.com/yihanzhen/gcb-go-push'
-  - '--version=v0.1.0'
+  # Set version to tag name because it is a convention for Go to use git tags
+  # as version numbers.
+  # The $TAG is a feature of GCB to substitute the playholder to the actual tag name
+  # if the build script is set to trigger on push to a tag.
+  - '--version=$TAG'
