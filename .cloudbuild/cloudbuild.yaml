@@ -10,6 +10,6 @@ steps:
   - 'upload'
   - '--project=hanzhenyi3'
   - '--location=us-west1'
-  - '--repository='go-repo'
+  - '--repository=go-repo'
   - '--module-path=github.com/yihanzhen/gcb-go-push'
   - '--version=v0.1.0'
